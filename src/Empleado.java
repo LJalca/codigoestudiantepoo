@@ -104,19 +104,18 @@ public class Empleado {
      * @param nuevaEdad La edad a asignar
      * @return true si la edad es valida y fue asignada; false en caso contrario
      */
-    public boolean setEdad(int nuevaEdad) {
-        // ====================================================================
-        // ESCRIBE TU CODIGO AQUI:
-        // PISTA: Evalua con un if (nuevaEdad >= 18 && nuevaEdad <= 70)
-        // ====================================================================
-
-        // [PLANTILLA TEMPORAL]: Reemplazar con tu implementacion completa
-        this.edad = nuevaEdad; 
-        return true;
+ public boolean setEdad(int nuevaEdad) {
+        if (nuevaEdad >= 18 && nuevaEdad <= 70) {
+            this.edad = nuevaEdad;
+            return true;
+        } else {
+            System.out.println("[ERROR INVARIANTE] Edad invalida (" + nuevaEdad + " anios). Debe estar en el rango legal de 18 a 70 anios.");
+            return false;
+        }
     }
 
     /**
-     * TODO (ACTIVIDAD ESTUDIANTE):
+     * TODO (ACTIVIDAD ESTUDIANTE):s
      * Valida y asigna el sueldo del empleado.
      * 
      * Regla de Negocio / Invariante:
@@ -128,15 +127,14 @@ public class Empleado {
      * @param nuevoSueldo El salario mensual en dolares
      * @return true si el salario cumple con la invariante; false en caso contrario
      */
-    public boolean setSueldo(double nuevoSueldo) {
-        // ====================================================================
-        // ESCRIBE TU CODIGO AQUI:
-        // PISTA: Evalua con un if (nuevoSueldo >= SALARIO_BASICO_ECUADOR)
-        // ====================================================================
-
-        // [PLANTILLA TEMPORAL]: Reemplazar con tu implementacion completa
-        this.sueldo = nuevoSueldo;
-        return true;
+   public boolean setSueldo(double nuevoSueldo) {
+        if (nuevoSueldo >= SALARIO_BASICO_ECUADOR) {
+            this.sueldo = nuevoSueldo;
+            return true;
+        } else {
+            System.out.println("[ERROR INVARIANTE] El sueldo ($" + String.format("%.2f", nuevoSueldo) + ") no puede ser menor al SBU de Ecuador ($" + String.format("%.2f", SALARIO_BASICO_ECUADOR) + ").");
+            return false;
+        }
     }
 
     // ------------------------------------------------------------------------
